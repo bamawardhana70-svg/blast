@@ -1,0 +1,16 @@
+{
+  "name": "baxdestudio-asset-blaster",
+  "version": "1.0.0",
+  "description": "Bulk-grant Roblox asset Use permission to a Universe through the Open Cloud Asset Permissions API.",
+  "main": "server/server.js",
+  "private": true,
+  "scripts": {
+    "start": "node server/server.js",
+    "dev": "node --watch server/server.js"
+  },
+  "engines": { "node": ">=18.17" },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}

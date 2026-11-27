@@ -3,134 +3,136 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#000000">
   <title>BaxdeStudio Asset Permission Blaster</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg-glow" aria-hidden="true"></div>
-  <main class="shell">
-    <header class="topbar glass">
-      <div class="brand">
-        <span class="brand-mark" aria-hidden="true"></span>
+  <div class="baxdev-background" aria-hidden="true"><i></i><i></i></div>
+  <main class="baxdev-shell">
+    <header class="baxdev-navbar baxdev-glass">
+      <div class="baxdev-brand">
+        <span class="baxdev-brand-mark" aria-hidden="true"></span>
         <div>
           <h1>BaxdeStudio</h1>
           <p>Asset Permission Blaster</p>
         </div>
       </div>
-      <div class="pill" id="apiPill"><span class="dot"></span><span id="apiPillText">API key not set</span></div>
+      <div class="baxdev-pill" id="apiPill"><span class="baxdev-dot"></span><span id="apiPillText">API key not set</span></div>
     </header>
 
-    <div class="grid">
-      <section class="stack">
-        <article class="panel glass">
+    <div class="baxdev-grid">
+      <section class="baxdev-stack">
+        <article class="baxdev-glass baxdev-panel">
           <h2>API configuration</h2>
           <label for="apiKey">Roblox Open Cloud API key</label>
-          <div class="row">
+          <div class="baxdev-row">
             <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your API key">
-            <button class="btn ghost" id="toggleKey" type="button">Show</button>
+            <button class="baxdev-button ghost" id="toggleKey" type="button">Show</button>
           </div>
-          <p class="hint" id="savedKey">No key stored on the server.</p>
-          <div class="row wrap">
-            <button class="btn" id="saveKey" type="button">Save key</button>
-            <button class="btn ghost" id="testKey" type="button">Test API connection</button>
-            <button class="btn ghost" id="clearKey" type="button">Clear key</button>
+          <p class="baxdev-hint" id="savedKey">No key stored.</p>
+          <div class="baxdev-row wrap">
+            <button class="baxdev-button" id="saveKey" type="button">Save key</button>
+            <button class="baxdev-button ghost" id="testKey" type="button">Test API connection</button>
+            <button class="baxdev-button ghost" id="clearKey" type="button">Clear key</button>
           </div>
-          <p class="hint" id="testResult" role="status"></p>
+          <p class="baxdev-hint" id="testResult" role="status"></p>
 
           <label for="universeId">Target Universe ID</label>
           <input id="universeId" inputmode="numeric" autocomplete="off" placeholder="e.g. 1234567890">
-          <div class="chips">
-            <span class="chip">Permission action: Use</span>
-            <span class="chip">Subject type: Universe</span>
+          <div class="baxdev-chips">
+            <span class="baxdev-chip">Permission action: Use</span>
+            <span class="baxdev-chip">Subject type: Universe</span>
           </div>
         </article>
 
-        <article class="panel glass">
-          <div class="panel-head">
+        <article class="baxdev-glass baxdev-panel">
+          <div class="baxdev-panel-head">
             <h2>Asset IDs</h2>
-            <span class="count" id="assetCount">0 assets</span>
+            <span class="baxdev-count" id="assetCount">0 assets</span>
           </div>
           <textarea id="assetInput" spellcheck="false" placeholder="One Asset ID per line&#10;123456789&#10;987654321"></textarea>
-          <p class="hint" id="assetStats">Paste IDs or import a TXT file.</p>
-          <div class="row wrap">
-            <button class="btn ghost" id="cleanList" type="button">Clean list</button>
-            <button class="btn ghost" id="importTxt" type="button">Import TXT</button>
-            <button class="btn ghost" id="clearList" type="button">Clear list</button>
+          <p class="baxdev-hint" id="assetStats">Paste IDs or import a TXT file.</p>
+          <div class="baxdev-row wrap">
+            <button class="baxdev-button ghost" id="cleanList" type="button">Clean list</button>
+            <button class="baxdev-button ghost" id="importTxt" type="button">Import TXT</button>
+            <button class="baxdev-button ghost" id="clearList" type="button">Clear list</button>
             <input id="fileInput" type="file" accept=".txt,text/plain" hidden>
           </div>
-          <label class="check"><input type="checkbox" id="detectTypes"> Detect asset types first (needs the asset:read scope)</label>
+          <label class="baxdev-check"><input type="checkbox" id="detectTypes"> Detect asset types first (needs the asset:read scope)</label>
         </article>
       </section>
 
-      <section class="stack">
-        <article class="panel glass">
-          <div class="panel-head">
+      <section class="baxdev-stack">
+        <article class="baxdev-glass baxdev-panel">
+          <div class="baxdev-panel-head">
             <h2>Blast dashboard</h2>
-            <span class="count" id="jobStatus">Idle</span>
+            <span class="baxdev-count" id="jobStatus">Idle</span>
           </div>
-          <div class="tiles" id="tiles"></div>
-          <div class="bar" aria-hidden="true"><div class="bar-fill" id="barFill"></div></div>
-          <p class="hint" id="apiStatus">API status: waiting</p>
-          <div class="row wrap controls">
-            <button class="btn primary" id="btnStart" type="button">START BLAST</button>
-            <button class="btn" id="btnPause" type="button">PAUSE</button>
-            <button class="btn" id="btnResume" type="button">RESUME</button>
-            <button class="btn" id="btnCancel" type="button">CANCEL</button>
-            <button class="btn ghost" id="btnReset" type="button">RESET</button>
+          <div class="baxdev-tiles" id="tiles"></div>
+          <div class="baxdev-bar" aria-hidden="true"><div class="baxdev-bar-fill" id="barFill"></div></div>
+          <p class="baxdev-hint" id="apiStatus">API status: waiting</p>
+          <div class="baxdev-row wrap">
+            <button class="baxdev-button primary" id="btnStart" type="button">START BLAST</button>
+            <button class="baxdev-button" id="btnPause" type="button">PAUSE</button>
+            <button class="baxdev-button" id="btnResume" type="button">RESUME</button>
+            <button class="baxdev-button" id="btnCancel" type="button">CANCEL</button>
+            <button class="baxdev-button ghost" id="btnReset" type="button">RESET</button>
           </div>
-          <p class="hint error" id="actionError" role="alert"></p>
+          <p class="baxdev-hint error" id="actionError" role="alert"></p>
         </article>
 
-        <article class="panel glass">
-          <div class="panel-head">
+        <article class="baxdev-glass baxdev-panel">
+          <div class="baxdev-panel-head">
             <h2>Results</h2>
-            <div class="filters" id="filters">
-              <button class="filter active" data-filter="all" type="button">All</button>
-              <button class="filter" data-filter="Success" type="button">Success</button>
-              <button class="filter" data-filter="Failed" type="button">Failed</button>
-              <button class="filter" data-filter="Pending" type="button">Pending</button>
+            <div class="baxdev-filters" id="filters">
+              <button class="baxdev-filter active" data-filter="all" type="button">All</button>
+              <button class="baxdev-filter" data-filter="Success" type="button">Success</button>
+              <button class="baxdev-filter" data-filter="Failed" type="button">Failed</button>
+              <button class="baxdev-filter" data-filter="Pending" type="button">Pending</button>
             </div>
           </div>
-          <div class="table-wrap">
-            <table>
+          <div class="baxdev-table-wrap">
+            <table class="baxdev-table">
               <thead><tr><th>Asset ID</th><th>Type</th><th>Status</th><th>Response</th></tr></thead>
               <tbody id="resultBody"></tbody>
             </table>
           </div>
-          <p class="hint" id="resultNote">No results yet. Start a blast to see each asset here.</p>
-          <div class="row wrap">
-            <button class="btn ghost" id="exportTxt" type="button">Export TXT</button>
-            <button class="btn ghost" id="exportCsv" type="button">Export CSV</button>
-            <button class="btn ghost" id="retryFailed" type="button">Load failed IDs back into the list</button>
+          <p class="baxdev-hint" id="resultNote">No results yet. Start a blast to see each asset here.</p>
+          <div class="baxdev-row wrap">
+            <button class="baxdev-button ghost" id="exportTxt" type="button">Export TXT</button>
+            <button class="baxdev-button ghost" id="exportCsv" type="button">Export CSV</button>
+            <button class="baxdev-button ghost" id="retryFailed" type="button">Load failed IDs back into the list</button>
           </div>
         </article>
 
-        <article class="panel glass">
-          <div class="panel-head">
+        <article class="baxdev-glass baxdev-panel">
+          <div class="baxdev-panel-head">
             <h2>Blast history</h2>
-            <button class="btn ghost small" id="clearHistory" type="button">Clear history</button>
+            <button class="baxdev-button ghost small" id="clearHistory" type="button">Clear history</button>
           </div>
-          <div id="historyList" class="history"></div>
+          <div id="historyList" class="baxdev-history"></div>
         </article>
       </section>
     </div>
+    <footer class="baxdev-footer">BAXDEV &middot; BaxdeStudio</footer>
   </main>
 
-  <dialog id="detailDialog" class="glass dialog">
-    <div class="panel-head">
+  <dialog id="detailDialog" class="baxdev-glass baxdev-modal">
+    <div class="baxdev-panel-head">
       <h2 id="detailTitle">Blast details</h2>
-      <button class="btn ghost small" id="detailClose" type="button">Close</button>
+      <button class="baxdev-button ghost small" id="detailClose" type="button">Close</button>
     </div>
-    <p class="hint" id="detailMeta"></p>
-    <div class="table-wrap tall">
-      <table>
+    <p class="baxdev-hint" id="detailMeta"></p>
+    <div class="baxdev-table-wrap tall">
+      <table class="baxdev-table">
         <thead><tr><th>Asset ID</th><th>Type</th><th>Status</th><th>Response</th></tr></thead>
         <tbody id="detailBody"></tbody>
       </table>
     </div>
-    <div class="row wrap">
-      <button class="btn ghost" id="detailTxt" type="button">Export report TXT</button>
-      <button class="btn ghost" id="detailCsv" type="button">Export report CSV</button>
+    <div class="baxdev-row wrap">
+      <button class="baxdev-button ghost" id="detailTxt" type="button">Export report TXT</button>
+      <button class="baxdev-button ghost" id="detailCsv" type="button">Export report CSV</button>
     </div>
   </dialog>
 
